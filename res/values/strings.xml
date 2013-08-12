@@ -13,7 +13,8 @@
 	<string name="searchHint">Search scholarships</string>
     <color name = "text_color">#31D1F1</color>
 	<string name = "open">Open</string>
-	
+	<string name = "staff">Staff</string>
+	<string name = "GCM">Register for GCM</string>
     <string name="hnt_et_name">Name</string>
     <string name="mainmenuimage">Student Support</string>
     <string name="hnt_et_work_phone"> Phone</string>

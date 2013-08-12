@@ -34,7 +34,6 @@
             android:id="@+id/loginEmail"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:autoText="false"
             android:hint="@string/Email"
             android:inputType="textEmailAddress" />
         
@@ -44,6 +43,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dip"
+            
             android:text="@string/Password"
             android:textColor="@color/darkBlue" />
 

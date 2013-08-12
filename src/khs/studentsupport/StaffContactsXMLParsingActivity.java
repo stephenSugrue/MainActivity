@@ -12,11 +12,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
-import android.widget.AdapterView.OnItemClickListener;
 
 
 
@@ -80,7 +80,7 @@ public class StaffContactsXMLParsingActivity extends ListActivity {
 					String name = ((TextView) view.findViewById(R.id.name)).getText().toString();
 					String role = ((TextView) view.findViewById(R.id.role)).getText().toString();
 					String location = ((TextView) view.findViewById(R.id.location)).getText().toString();
-					String description = ((TextView) view.findViewById(R.id.desciption)).getText().toString();
+					//String description = ((TextView) view.findViewById(R.id.desciption)).getText().toString();
 					String email = ((TextView) view.findViewById(R.id.email)).getText().toString();
 					String phone = ((TextView) view.findViewById(R.id.phone)).getText().toString();
 					

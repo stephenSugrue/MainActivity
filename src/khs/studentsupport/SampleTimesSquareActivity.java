@@ -8,7 +8,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class SampleTimesSquareActivity extends Activity {
-  private static final String TAG = "SampleTimesSquareActivity";
+ 
   private CalendarPickerView calendar;
 
   @Override
@@ -20,7 +20,7 @@ public class SampleTimesSquareActivity extends Activity {
     nextYear.add(Calendar.YEAR, 1);
 
     final Calendar lastYear = Calendar.getInstance();
-    lastYear.add(Calendar.YEAR, -1);
+    lastYear.add(Calendar.YEAR, 0);
 
     calendar = (CalendarPickerView) findViewById(R.id.calendar_view);
     calendar.init(lastYear.getTime(), nextYear.getTime()) //

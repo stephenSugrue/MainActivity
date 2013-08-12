@@ -44,15 +44,7 @@ public class DashboardActivity extends Activity {
         	 
         	 
         	 
-         	/////////////// //////On click listener for gcm ////////////////////////
-         	 Button gcmRegister = (Button) findViewById(R.id.test);
          	
-         	gcmRegister.setOnClickListener(new View.OnClickListener() {
-      			public void onClick(View v) {
-      				Intent btnIntent = new Intent(getApplicationContext(), RegisterForGCMActivity.class);
-          			startActivity(btnIntent);
-      			}
-      		});
         	 
         	 
         	 

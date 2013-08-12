@@ -1,15 +1,11 @@
 
 package khs.studentsupport;
 
-
 import java.util.HashMap;
-
 import khs.supportapp.library.DatabaseHandler;
 import khs.supportapp.library.UserFunctions;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -21,12 +17,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
 import khs.studentsupport.R;
 public class LoginActivity extends Activity {
-	
-	
-	
+	 boolean GCMFlag=false; 
 	 // Shared Preferences
     SharedPreferences pref;
      
@@ -115,6 +108,8 @@ public class LoginActivity extends Activity {
 		setContentView(R.layout.login);
 
 		cd = new ConnectionDetector(getApplicationContext());
+		
+		
 
 		// Check if Internet present
 		if (!cd.isConnectingToInternet()) {
@@ -125,6 +120,8 @@ public class LoginActivity extends Activity {
 			// stop executing code by return
 			return;
 		}
+		
+	
 		
 		// Importing all assets like buttons, text fields
 		inputEmail = (EditText) findViewById(R.id.loginEmail);
@@ -144,8 +141,6 @@ public class LoginActivity extends Activity {
 				Log.d("Button", "Login");
 				JSONObject json = userFunction.loginUser(email, password);
 				
-				
-				
 				if (email.matches(""))
 				{
 				loginErrorMsg.setText("Please enter you email");
@@ -153,7 +148,14 @@ public class LoginActivity extends Activity {
 				
 				else
 				{
-
+					 if (Appconfig.activity == false) {
+						 Intent intent = new Intent();
+						 intent.setClass(getApplicationContext(),RegisterForGCMActivity.class);
+						 startActivity(intent);
+						 Appconfig.activity=true;
+						// WelcomeActivity.this.finish();
+						 }
+					 else{
 				// check for login response
 				try {
 					if (json.getString(KEY_SUCCESS) != null) {
@@ -169,6 +171,7 @@ public class LoginActivity extends Activity {
 							userFunction.logoutUser(getApplicationContext());
 							db.addUser(json_user.getString(KEY_NAME), json_user.getString(KEY_EMAIL), json.getString(KEY_UID), json_user.getString(KEY_CREATED_AT));						
 							
+							
 							// Launch Dashboard Screen
 							Intent dashboard = new Intent(getApplicationContext(), DashboardActivity.class);
 							
@@ -178,18 +181,26 @@ public class LoginActivity extends Activity {
 							
 							// Close Login Screen
 							finish();
+						
+							
 						}else{
 							// Error in login
 							loginErrorMsg.setText("Incorrect username/password");
 						}
 					}
 				
+	
+				
 				
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
 			}
-			}});
+			}}});
+		   GCMFlag = true;
+		
+		
+		
 		
 
 		// Link to Register Screen
